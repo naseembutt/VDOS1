@@ -1,0 +1,71 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:rgb(161, 26, 121);
+    font-family:Arial;
+}
+
+#switch{
+    display:none;
+}
+
+.container{
+    text-align:center;
+}
+
+/* Bulb */
+.bulb{
+    width:120px;
+    height:120px;
+    background:#333;
+    border-radius:50%;
+    margin:auto;
+    position:relative;
+    transition:0.3s;
+}
+
+.bulb::after{
+    content:"";
+    position:absolute;
+    width:40px;
+    height:50px;
+    background:silver;
+    bottom:-50px;
+    left:50%;
+    transform:translateX(-50%);
+    border-radius:5px;
+}
+
+/* ON Glow */
+#switch:checked ~ .bulb{
+    background:white;
+    box-shadow:0 0 40px white,
+               0 0 80px white,
+               0 0 120px white;
+}
+
+/* Button */
+label{
+    display:inline-block;
+    margin-top:90px;
+    padding:10px 25px;
+    border:1px solid white;
+    color:white;
+    cursor:pointer;
+}
+
+label::after{
+    content:"TURN ON";
+}
+
+#switch:checked ~ label::after{
+    content:"TURN OFF";
+}
